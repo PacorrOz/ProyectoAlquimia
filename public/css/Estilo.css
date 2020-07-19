@@ -1,0 +1,86 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+} 
+
+ /* Colores*/
+  .tonos-azul-rey-1-hex { color: #0071BF; }
+  .tonos-azul-rey-2-hex { color: #004B7F; }
+  .tonos-azul-rey-3-hex { color: #0097FF; }
+  .tonos-azul-rey-4-hex { color: #002640; }
+  .tonos-azul-rey-5-hex { color: #0088E5; }
+  /* Fuentes:
+	font-family: 'Archivo Black', sans-serif;
+	font-family: 'Dosis', sans-serif;
+	font-family: 'Quicksand', sans-serif;*/
+body{
+	background-color: #002640;
+}
+p{
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: medium;
+	font-family: 'Dosis', sans-serif
+}
+h1{
+	color: #0088E5;
+	font-family: 'Archivo Black', sans-serif;
+	font-size: 3em;
+}
+h3{
+	color: #FFFFFF;
+	font-family: 'Quicksand', sans-serif;
+	font-size:1.5em;
+	font-weight: bold;
+}
+ .todo{
+	margin: auto; 
+}
+.header{
+	margin: auto;
+	margin-bottom: 30px;
+	margin-top: 15px;;
+	width: 40%;
+}
+.instrucciones{
+	margin: auto;
+	margin-bottom: 30px;
+	background-color: #0088E5;
+	width: 40%;
+	padding-top: 15px;
+	padding-left: 40px;
+	padding-bottom: 20px;
+}
+  /* Botones */ 
+.radio-toolbar {
+	margin: 10px;
+  } 
+  .radio-toolbar input[type="radio"] {
+	opacity: 0;
+	position: fixed;
+	width: 0;
+  }
+  .radio-toolbar label {
+	  display: inline-block;
+	  background-color: #ddd;
+	  padding: 10px 20px;
+	  font-family: sans-serif, Arial;
+	  font-size: 16px;
+	  border: 2px solid #444;
+	  border-radius: 4px;
+  }
+  .radio-toolbar label:hover {
+	background-color: #dfd;
+  }
+  .radio-toolbar input[type="radio"]:focus + label {
+	  border: 2px dashed #444;
+  }
+  .radio-toolbar input[type="radio"]:checked + label {
+	  background-color: #bfb;
+	  border-color: #4c4;
+  }
