@@ -20,7 +20,7 @@
                 <p> 3.- Confirmar si esta de acuerdo con el cambio</p>
                 <p> 4.- La caja darael cambio y finalizara</p>
             </div>
-            <div class="Botones">
+            <!-- <div class="Botones">
                 <h3>Ingrese su billete</h3>
                 <form action="#">
                     <input type="radio" id="1000" name="billete" value="1000">
@@ -31,19 +31,32 @@
                     <input type="radio" id="20" name="billete" value="20">
                     <button type="submit">Cambiar</button>
                 </form>
-            </div>
-            <div class="Botones">
-                <div class="radio-toolbar">
-                    <input type="radio" id="radioApple" name="radioFruit" value="apple" checked>
-                    <label for="radioApple">Apple</label>
+            </div> -->
+            <div class="botones">
+                <h3>Ingrese su billete</h3>
+                <form action="#">
+                    <div class="radio-toolbar">
+                        <input type="radio" id="1000" name="billete" value="1000" checked>
+                        <label for="1000">$1000</label>
 
-                    <input type="radio" id="radioBanana" name="radioFruit" value="banana">
-                    <label for="radioBanana">Banana</label>
+                        <input type="radio" id="500" name="billete" value="500">
+                        <label for="500">$500</label>
 
-                    <input type="radio" id="radioOrange" name="radioFruit" value="orange">
-                    <label for="radioOrange">Orange</label> 
-                </div>
-                <p>&nbsp;</p>
+                        <input type="radio" id="200" name="billete" value="200">
+                        <label for="200">$200</label> 
+
+                        <input type="radio" id="100" name="billete" value="100">
+                        <label for="100">$100</label> 
+
+                        <input type="radio" id="50" name="billete" value="50">
+                        <label for="50">$50</label> 
+
+                        <input type="radio" id="20" name="billete" value="20">
+                        <label for="20">$20</label> 
+                    </div>
+                    <p>&nbsp;</p>
+                    <button type="submit">Cambiar</button>
+                </form>
             </div>
             <div class="Disponibles">
                 <h3>Billetes y monedas disponibles</h3>
