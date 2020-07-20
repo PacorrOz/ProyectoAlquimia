@@ -35,32 +35,52 @@
             <div class="botones">
                 <h3>Ingrese su billete</h3>
                 <form action="#">
-                    <div class="radio-toolbar">
-                        <input type="radio" id="1000" name="billete" value="1000" checked>
-                        <label for="1000">$1000</label>
-
-                        <input type="radio" id="500" name="billete" value="500">
-                        <label for="500">$500</label>
-
-                        <input type="radio" id="200" name="billete" value="200">
-                        <label for="200">$200</label> 
-
-                        <input type="radio" id="100" name="billete" value="100">
-                        <label for="100">$100</label> 
-
-                        <input type="radio" id="50" name="billete" value="50">
-                        <label for="50">$50</label> 
-
-                        <input type="radio" id="20" name="billete" value="20">
-                        <label for="20">$20</label> 
-                    </div>
-                    <p>&nbsp;</p>
-                    <button type="submit">Cambiar</button>
+                    <table class="radio-toolbar">
+                        <tr>
+                             <td>
+                                <input type="radio" id="1000" name="billete" value="1000" checked>
+                                <label for="1000">$1000</label>
+                             </td>
+                             <td>
+                                <input type="radio" id="500" name="billete" value="500">
+                                <label for="500">$500&nbsp;</label>
+                             </td>
+                             <td>
+                                <input type="radio" id="200" name="billete" value="200">
+                                <label for="200">$200&nbsp;</label> 
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <table class="radio-toolbar">
+                        <tr>
+                            <td>
+                                <input type="radio" id="100" name="billete" value="100">
+                                <label for="100">$100&nbsp;&nbsp;</label> 
+                            </td>
+                            <td>
+                                <input type="radio" id="50" name="billete" value="50">
+                                <label for="50">$50&nbsp;&nbsp;&nbsp;</label> 
+                            </td>
+                            <td>
+                                <input type="radio" id="20" name="billete" value="20">
+                                <label for="20">$20&nbsp;&nbsp;&nbsp;</label> 
+                            </td>
+                        </tr>
+                        
+                    </table>
+                    <br>
+                    <table class="radio-toolbar">
+                        <tr>
+                            <td><input type="submit" value="Cambiar"></td>
+                        </tr>
+                    </table>                    
                 </form>
             </div>
-            <div class="Disponibles">
+            <br>
+            <div class="instrucciones">
                 <h3>Billetes y monedas disponibles</h3>
-                <table>
+                <table class="radio-toolbar">
                 <tr>
                     <td>$500</td><td>$200</td><td>$200</td><td>$200</td><td>$100</td><td>$50</td>
                 </tr>
