@@ -14,19 +14,18 @@ class CreateBilletesTable extends Migration
     public function up()
     {
         Schema::create('billetes', function (Blueprint $table) {
-            //$table->bigIncrements('id');
-            $table->integer('1000');
-            $table->integer('500');
-            $table->integer('200');
-            $table->integer('100');
-            $table->integer('50');
-            $table->integer('20');
-            $table->integer('10');
-            $table->integer('5');
-            $table->integer('2');
-            $table->integer('1');
-            $table->integer('0.5');
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->integer('b1000');
+            $table->integer('b500');
+            $table->integer('b200');
+            $table->integer('b100');
+            $table->integer('b50');
+            $table->integer('b20');
+            $table->integer('b10');
+            $table->integer('b5');
+            $table->integer('b2');
+            $table->integer('b1');
+            $table->integer('bcntvs');
         });
     }
 

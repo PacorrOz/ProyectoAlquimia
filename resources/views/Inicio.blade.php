@@ -24,19 +24,21 @@
             </div>
             <div class="botones">
                 <h3>Ingrese su billete</h3>
-                <form action="#">
+                <form action="{{ url('IngresaBillete') }}" method="POST">
+                {{ csrf_field() }}
+                    <input type="radio" hidden checked required>
                     <table class="radio-toolbar">
                         <tr>
                              <td>
-                                <input type="radio" id="1000" name="billete" value="1000" checked>
+                                <input type="radio" id="1000" name="billete" value="1000" required >
                                 <label for="1000">$1000</label>
                              </td>
                              <td>
-                                <input type="radio" id="500" name="billete" value="500">
+                                <input type="radio" id="500" name="billete" value="500" required>
                                 <label for="500">$500&nbsp;</label>
                              </td>
                              <td>
-                                <input type="radio" id="200" name="billete" value="200">
+                                <input type="radio" id="200" name="billete" value="200" required>
                                 <label for="200">$200&nbsp;</label> 
                             </td>
                         </tr>
@@ -45,15 +47,15 @@
                     <table class="radio-toolbar">
                         <tr>
                             <td>
-                                <input type="radio" id="100" name="billete" value="100">
+                                <input type="radio" id="100" name="billete" value="100" required>
                                 <label for="100">$100&nbsp;&nbsp;</label> 
                             </td>
                             <td>
-                                <input type="radio" id="50" name="billete" value="50">
+                                <input type="radio" id="50" name="billete" value="50" required>
                                 <label for="50">$50&nbsp;&nbsp;&nbsp;</label> 
                             </td>
                             <td>
-                                <input type="radio" id="20" name="billete" value="20">
+                                <input type="radio" id="20" name="billete" value="20" required>
                                 <label for="20">$20&nbsp;&nbsp;&nbsp;</label> 
                             </td>
                         </tr>
@@ -71,10 +73,80 @@
                 <h3>Billetes y monedas disponibles</h3>
                 <table class="radio-toolbar">
                     <tr>
-                        <td>$500</td><td>$200</td><td>$200</td><td>$200</td><td>$100</td><td>$50</td>
+                        <td>
+                            $500
+                            @if($billetes->b500 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $200
+                            @if($billetes->b200 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $100
+                            @if($billetes->b100 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $50
+                            @if($billetes->b50 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $20
+                            @if($billetes->b20 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
                     </tr>
                     <tr>
-                        <td>$20</td><td>$10</td><td>$5</td><td>$2</td><td>$1</td><td>$0.50</td>
+                        <td>
+                            $10
+                            @if($billetes->b10 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $5
+                            @if($billetes->b5 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $2
+                            @if($billetes->b2 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;font-weight:bolder;">clear</i> 
+                            @endif
+                        </td>
+                        <td>
+                            $1
+                            @if($billetes->b1 > 0)
+                                <i class="material-icons" style="font-size:22px;color:#95D904;font-weight:bolder;">done</i>
+                            @else
+                                <i class="material-icons" style="font-size:20px; color:red;">clear</i> 
+                            @endif
+                        </td>
                     </tr>
                 </table>
             </div>
