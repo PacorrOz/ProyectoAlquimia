@@ -15,9 +15,10 @@ class CreateTransaccionesTable extends Migration
     {
         Schema::create('transacciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('usuario');
-            $table->char('operacion');
-            $table->timestamps();
+            $table->integer('usuario')->nullable;
+            $table->char('operacion')->nullable;
+            $table->timestamp('created_at')->default(date("Y-m-d H:i:s"))->nullable();
+            $table->timestamp('updated_at')->default(date("Y-m-d H:i:s"))->nullable();     
         });
     }
 

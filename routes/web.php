@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('Inicio');
-});
+Route::get('/', 'TransaccionController@inicio')->name('inicio');
+Route::post('IngresaBillete', 'TransaccionController@IngresaBillete')->name('IngresaBillete');
