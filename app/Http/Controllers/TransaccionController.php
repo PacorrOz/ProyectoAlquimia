@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Billete;
+use App\Transaccion;
 
 class TransaccionController extends Controller
 {
@@ -14,6 +15,7 @@ class TransaccionController extends Controller
 
     public function IngresaBillete(Request $request){
         $monto = $request->billete;
+        $monto_show = $monto;
         $billetes_stock = Billete::where('id', 1)->first();
         $s500 = $billetes_stock->b500;
         $s200 = $billetes_stock->b200;
@@ -102,11 +104,91 @@ class TransaccionController extends Controller
                 }    
             }
             $cambio = [$b500, $b200, $b100, $b50, $b20, $b10, $b5, $b2, $b1];
-            return view ('pruebas', compact('cambio'));
+            return view ('Resultados', compact('cambio', 'b500', 'b200', 'b100', 'b50', 'b20', 'b10', 'b5', 'b2', 'b1', 'monto_show'));
         }else{
-            $error_msg = 'No hay fondos suficientes';
-            return view('pruebas', compact('error_msg'));
+            $error_msg = 'Disculpe la molestia, por el momento no contamos con fondos suficientes para darle cambio de su billete de $';
+            return view('Resultados', compact('error_msg', 'monto_show'));
         }
         
+    }
+
+    public function finError(){
+        $transaccion = new Transaccion;
+        $transaccion->usuario = "Usuario";
+        $transaccion->operacion = "Cambio billete";
+        $transaccion->estatus = "Sin Fondos";
+        $transaccion->save();
+
+        $billetes = Billete::where('id', 1)->first();
+        return view ('inicio', compact('billetes'));
+    }
+
+    public function finCancelar(){
+        $transaccion = new Transaccion;
+        $transaccion->usuario = "Usuario";
+        $transaccion->operacion = "Cambio billete";
+        $transaccion->estatus = "Cancelado por Usuario";
+        $transaccion->save();
+
+        $billetes = Billete::where('id', 1)->first();
+        return view ('inicio', compact('billetes'));
+    }
+
+    public function finAceptar($cambio){
+        $billetes = Billete::find(1);
+        
+        $billetes_stock = Billete::where('id', 1)->first();
+        $s500 = $billetes_stock->b500;
+        $s200 = $billetes_stock->b200;
+        $s100 = $billetes_stock->b100;
+        $s50 = $billetes_stock->b50;
+        $s20 = $billetes_stock->b20;
+        $s10 = $billetes_stock->b10;
+        $s5 = $billetes_stock->b5;
+        $s2 = $billetes_stock->b2;
+        $s1 = $billetes_stock->b1;
+
+        if($s500 > 0)
+            $b500 = ($s500 - $cambio[0]);
+        else
+            $b500 = 0;
+        if($s200 > 0)
+            $b200 = ($s200 - $cambio[1]);
+        else
+            $b200 = 0;
+        if($s100 > 0)
+            $b100 = ($s100 - $cambio[2]);
+        else
+            $b100 = 0;
+        if($s50 > 0)
+            $b50 = ($s50 - $cambio[3]);
+        else
+            $b50 = 0;
+        if($s20 > 0)
+            $b20 = ($s20 - $cambio[4]);
+        else
+            $b20 = 0;
+
+        $caja = Billete::find(1);
+        $caja->b500 = $b500;
+        $caja->b200 = $b200;
+        $caja->b100 = $b100;
+        $caja->b50 = $b50;
+        $caja->b20 = $b20;
+        /*$caja->b10 = $b10;
+        $caja->b5 = $b5;
+        $caja->b2 = $b2;
+        $caja->b1 = $b1;*/
+        $caja->save();
+
+        $transaccion = new Transaccion;
+        $transaccion->usuario = "Usuario";
+        $transaccion->operacion = "Cambio billete";
+        $transaccion->estatus = "Exito";
+        $transaccion->save();
+
+        $billetes = Billete::where('id', 1)->first();
+        return view ('inicio', compact('billetes'));
+
     }
 }

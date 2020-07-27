@@ -13,3 +13,7 @@
 
 Route::get('/', 'TransaccionController@inicio')->name('inicio');
 Route::post('IngresaBillete', 'TransaccionController@IngresaBillete')->name('IngresaBillete');
+Route::get('/finError', 'TransaccionController@finError')->name('finError');
+Route::get('/finCancelar', 'TransaccionController@finCancelar')->name('finCancelar');
+Route::get('/finAceptar/{cambio}', 'TransaccionController@finAceptar')->name('finAceptar');
+
