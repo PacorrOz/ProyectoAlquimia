@@ -1,4 +1,6 @@
 <?php
+/* Esta es una prueba
+Eliminar este comentario */
 
 namespace App\Http\Controllers;
 
