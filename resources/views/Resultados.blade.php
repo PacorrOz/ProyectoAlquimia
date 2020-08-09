@@ -38,9 +38,10 @@
                         </tr>
                     </table>
                     <table class="opciones">
+
                         <tr>
                             <td class="aceptar">
-                                <a href="{{ route('finAceptar', ['b500', 'b200', 'b100', 'b50', 'b20', 'b10', 'b5', 'b2', 'b1']) }}" >
+                                <a href="{{ route('finAceptar', [$b500, $b200, $b100, $b50, $b20, $b10, $b5, $b2, $b1, $monto_show]) }}" >
                                     Aceptar
                                 </a>
                             </td>
