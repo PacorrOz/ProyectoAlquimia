@@ -31,7 +31,7 @@ class TransaccionController extends Controller
         if($total_caja >= $monto ){
             while ($monto > 0){
                 if ($monto > 500 && $s500 > 0){
-                    while($monto >= 500 && $s500 > 0){
+                    while($monto > 500 && $s500 > 0){
                         $monto -= 500;
                         $b500 +=1;
                         $s500 -= 1;
@@ -85,6 +85,11 @@ class TransaccionController extends Controller
                         $s1 -= 1;
                     }
                 }
+                else{
+                    //break;
+                    $error_msg = 'Disculpe la molestia, por el momento no contamos con fondos suficientes para darle cambio de su billete de $';
+                    return view('Resultados', compact('error_msg', 'monto_show'));
+                }
             }
             $cambio = [$b500, $b200, $b100, $b50, $b20, $b10, $b5, $b2, $b1];
             return view ('Resultados', compact('cambio', 'b500', 'b200', 'b100', 'b50', 'b20', 'b10', 'b5', 'b2', 'b1', 'monto_show'));
@@ -116,41 +121,112 @@ class TransaccionController extends Controller
         return view ('inicio', compact('billetes'));
     }
 
-    public function finAceptar($b500, $b200, $b100, $b50, $b20, $b10, $b5, $b2, $b1){
+    public function finAceptar($b500, $b200, $b100, $b50, $b20, $b10, $b5, $b2, $b1, $monto_show){
+        $cantidad = $monto_show;
+        $billetes = Billete::where('id', 1)->first();
 
-        $billetes_stock = Billete::where('id', 1)->first();
-        $s500 = $billetes_stock->b500;
-        $s200 = $billetes_stock->b200;
-        $s100 = $billetes_stock->b100;
-        $s50 = $billetes_stock->b50;
-        $s20 = $billetes_stock->b20;
-        $s10 = $billetes_stock->b10;
-        $s5 = $billetes_stock->b5;
-        $s2 = $billetes_stock->b2;
-        $s1 = $billetes_stock->b1;
+        if(is_numeric($billetes->b500) && $billetes->b500 > 0){
+            if(is_numeric($b500) && $b500 > 0)
+                $q500  = ($billetes->b500 - $b500);
+            else
+                $q500 = $billetes->b500;
+        }
+        else
+            $q500 = 0;
 
-        $q500 = $q200 = $q100 = $q50 = $q20 = $q10 = $q5 = $q2 = $q1 = 0;
+        if(is_numeric($billetes->b200) && $billetes->b200 > 0){
+            if(is_numeric($b200) && $b200 > 0)
+                $q200 = ($billetes->b200 - $b200);
+            else
+                $q200 = $billetes->b200;
+        }
+        else
+            $q200 = 0;
+        
+        if(is_numeric($billetes->b100) && $billetes->b100 > 0){
+            if(is_numeric($b100) && $b100 > 0)
+                $q100 = ($billetes->b100 - $b100);
+            else
+                $q100 = $billetes->b100;
+        }
+        else
+            $q100 = 0;
+            
+        if(is_numeric($billetes->b50) && $billetes->b50 > 0){
+            if(is_numeric($b50) && $b50 > 0)
+                $q50 = ($billetes->b50 - $b50);
+            else
+                $q50 = $billetes->b50;
+        }
+        else
+            $q50 = 0;
+            
+        if(is_numeric($billetes->b20) && $billetes->b20 > 0){
+            if(is_numeric($b20) && $b20 > 0)
+                $q20 = ($billetes->b20 - $b20);
+            else
+                $q20 = $billetes->b20;
+        }
+        else
+            $q20 = 0;
+        
+        if(is_numeric($billetes->b10) && $billetes->b10 > 0){
+            if(is_numeric($b10) && $b10 > 0)
+                $q10 = ($billetes->b10 - $b10);
+            else
+                $q10 = $billetes->b10;
+        }
+        else
+            $q10 = 0;
+        
+        if(is_numeric($billetes->b5) && $billetes->b5 > 0){
+            if(is_numeric($b5) && $b5 > 0)
+                $q5 = ($billetes->b5 - $b5);
+            else
+                $q5 = $billetes->b5;
+        }
+        else
+            $q5 = 0;
+        
+        if(is_numeric($billetes->b2) && $billetes->b2 > 0){
+            if(is_numeric($b2) && $b2 > 0)
+                $q2 = ($billetes->b2 - $b2);
+            else
+                $q2 = $billetes->b2;
+        }
+        else
+            $q2 = 0;
+        
+        if(is_numeric($billetes->b1) && $billetes->b1 > 0){
+            if(is_numeric($b1) && $b1 > 0)
+                $q1 = ($billetes->b1 - $b1);
+            else
+                $q1 = $billetes->b1;
+        }
+        else
+            $q1 = 0;
 
-        if(is_numeric($s500) && $s500 > 0 )
-            $q500 = ($s500 - $b500);
-        if($s200 > 0)
-            $q200 = ($s200 - $b200);
-        if($s100 > 0)
-            $q100 = ($s100 - $b100);
-        if($s50 > 0)
-            $q50 = ($s50 - $b50);
-        if($s20 > 0)
-            $q20 = ($s20 - $b20);
-        if($s10 > 0)
-            $q10 = ($s10 - $b10);
-        if($s5 > 0)
-            $q5 = ($s5 - $b5);
-        if($s2 > 0)
-            $q2 = ($s2 - $b2);
-        if($s1 > 0) 
-            $q1 = ($s1 - $b1);
-
+        if($cantidad == 1000){
+            if(is_numeric($billetes->b1000) && $billetes->b1000 > 0)
+                $q1000 = $billetes->b1000 + 1;
+            else
+                $q1000 = 1;
+        }
+        else{
+            $q1000 = $billetes->b1000;
+            if($cantidad == 500)
+                $q500 = $q500 + $billetes->b500 + 1;
+            elseif($cantidad == 200)
+                $q200 = $q200 + $billetes->b200 + 1;
+            elseif($cantidad == 100)
+                $q100 = $q100 + $billetes->b100 + 1;
+            elseif($cantidad == 50)
+                $q50 = $q50 + $billetes->b50 + 1;
+            elseif($cantidad == 20)
+                $q20 = $q20 + $billetes->b20 + 1;
+        }
         $caja = Billete::find(1);
+        $caja->b1000 = $q1000;
         $caja->b500 = $q500;
         $caja->b200 = $q200;
         $caja->b100 = $q100;
@@ -160,7 +236,7 @@ class TransaccionController extends Controller
         $caja->b5 = $q5;
         $caja->b2 = $q2;
         $caja->b1 = $q1;
-        $caja->save();
+        $caja->save(); 
 
         $transaccion = new Transaccion;
         $transaccion->usuario = "Usuario";
@@ -170,6 +246,5 @@ class TransaccionController extends Controller
 
         $billetes = Billete::where('id', 1)->first();
         return view ('inicio', compact('billetes'));
-
     }
 }
