@@ -15,5 +15,5 @@ Route::get('/', 'TransaccionController@inicio')->name('inicio');
 Route::post('IngresaBillete', 'TransaccionController@IngresaBillete')->name('IngresaBillete');
 Route::get('/finError', 'TransaccionController@finError')->name('finError');
 Route::get('/finCancelar', 'TransaccionController@finCancelar')->name('finCancelar');
-Route::get('/finAceptar/{cambio}', 'TransaccionController@finAceptar')->name('finAceptar');
+Route::get('/finAceptar/{b500}/{b200}/{b100}/{b50}/{b20}/{b10}/{b5}/{b2}/{b1}', 'TransaccionController@finAceptar')->name('finAceptar');
 

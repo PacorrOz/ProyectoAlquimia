@@ -40,7 +40,7 @@
                     <table class="opciones">
                         <tr>
                             <td class="aceptar">
-                                <a href="{{ url('finAceptar', serialize($cambio)) }}" >
+                                <a href="{{ route('finAceptar', ['b500', 'b200', 'b100', 'b50', 'b20', 'b10', 'b5', 'b2', 'b1']) }}" >
                                     Aceptar
                                 </a>
                             </td>
