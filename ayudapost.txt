@@ -1,0 +1,33 @@
+Hello need some help.
+                                                                                                                                                                                                                                               
+I'm getting this error when try to go to  https://alquimia-servicio.000webhostapp.com/
+
+`InvalidArgumentException thrown with message "View [inicio] not found."`
+
+This is my Route:
+
+`Route::get('/', 'TransaccionController@inicio')->name('inicio');`
+
+Controller:
+
+    <?php
+    namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use App\Billete;
+    use App\Transaccion;
+    class TransaccionController extends Controller
+
+    {
+        public function inicio(){
+            $billetes = Billete::where('id', 1)->first();
+            return view ('inicio', compact('billetes'));
+        }
+    }
+
+My files look like this:
+![files|690x217](upload://rmaHtGjkZSyvNvG5K0kHPyelV1Y.png) 
+
+I ran `composer update`, `composer cache-clear` and `php artisan optimize:clear` before uploading my files so there shouldn't be any cached view or anything like that  
+
+It works well if I try to go to https://alquimia-servicio.000webhostapp.com/Admin
+

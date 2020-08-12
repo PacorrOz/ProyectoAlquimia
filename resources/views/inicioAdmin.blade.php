@@ -16,8 +16,9 @@
                 <h3>Transmuta tu dinero</h3>
             </div>
             <div class="billetes">
-                <a href="{{ url('adminCaja') }}" >
-                <a href="{{ url('adminOps') }}" >
+                <a href="{{ url('adminCaja') }}" > Admin Caja </a>
+                <br><br>
+                <a href="{{ url('adminOps') }}" > Ver transacciones </a>
             </div>
         </div>
     </body>
