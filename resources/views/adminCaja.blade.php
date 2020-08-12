@@ -47,7 +47,7 @@
                             <td><input type="number" name="b10" id="b10" value="{{$billetes->b10}}" min="0" max="999" step="1"/></td>
                             <td><input type="number" name="b5" id="b5" value="{{$billetes->b5}}" min="0" max="999" step="1"/></td>
                             <td><input type="number" name="b2" id="b2" value="{{$billetes->b2}}" min="0" max="999" step="1"/></td>
-                            <td><input type="number" name="b1" id="b1" value="{{$billetes->b1}" min="0" max="999" step="1"/></td>
+                            <td><input type="number" name="b1" id="b1" value="{{$billetes->b1}}" min="0" max="999" step="1"/></td>
                         </tr>
                         <tr>
                             <td></td>
