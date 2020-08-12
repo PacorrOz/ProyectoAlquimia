@@ -19,4 +19,5 @@ Route::get('/finAceptar/{b500}/{b200}/{b100}/{b50}/{b20}/{b10}/{b5}/{b2}/{b1}/{m
 Route::get('/Admin', 'adminController@inicio')->name('Admin');
 Route::get('/adminCaja', 'adminController@adminCaja')->name('adminCaja');
 Route::get('/adminOps', 'adminController@adminOps')->name('adminOps');
+Route::post('cajaPost', 'adminController@cajaPost')->name('cajaPost');
 
