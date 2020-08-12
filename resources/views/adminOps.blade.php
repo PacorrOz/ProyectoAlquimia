@@ -16,7 +16,7 @@
                 <h3>Transmuta tu dinero</h3>
             </div>
             <div class="billetes">
-                @if(isset($ops))
+                @if($ops->isNotEmpty())
                     <table>
                         <tr>
                             <th><h3>Id</h3> </th>
